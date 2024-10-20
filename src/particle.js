@@ -9,6 +9,8 @@ export class Particle {
   constructor(type, color) {
     this.type = type;
     this.color = color;
+    this.density = 1;
+    this.affectedByDensity = true;
   }
 
   getColor() {
@@ -30,6 +32,7 @@ export class Particle {
 export class OutOfBoundsParticle extends Particle {
   constructor() {
     super(ParticleType.OutOfBounds, { r: 0, g: 0, b: 0, a: 0 });
+    this.affectedByDensity = false;
   }
 
   getColor() {
@@ -42,6 +45,7 @@ export class OutOfBoundsParticle extends Particle {
 export class AirParticle extends Particle {
   constructor() {
     super(ParticleType.Air, { r: 0, g: 0, b: 0, a: 0 });
+    this.affectedByDensity = false;
   }
 
   getColor() {
@@ -53,6 +57,7 @@ export class SandParticle extends Particle {
   constructor() {
     super(ParticleType.Sand, { r: 0, g: 0, b: 0, a: 0 });
     this.color =  randomColorInHSLRange(48, 50, 40, 70, 50, 80);
+    this.density = 2;
   }
 }
 

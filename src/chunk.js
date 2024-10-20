@@ -113,6 +113,8 @@ class Chunk {
             this.moveRule(world, x, y, 1, -1) ||
             this.decide(() => this.moveRule(world, x, y, -1, 0), () => this.moveRule(world, x, y, 1, 0), 0.5)
         }
+
+        this.densityRule(world, x, y, 0, -1);
       }
     }
   }
@@ -123,6 +125,23 @@ class Chunk {
     } else {
       return funcB();
     }
+  }
+
+  densityRule(world, x, y, dx, dy) {
+    const particle = this.getParticle(world, x, y);
+    const otherParticle = this.getParticle(world, x + dx, y + dy);
+
+    if(!particle.affectedByDensity)
+        return false;
+
+    if(!otherParticle.affectedByDensity)
+        return false;
+
+    if (particle.density > otherParticle.density) {
+      this.swapParticles(world, x, y, x + dx, y + dy);
+      return true;
+    }
+    return false;
   }
 
   moveRule(world, x, y, dx, dy) {
