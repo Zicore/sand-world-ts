@@ -1,0 +1,59 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment-specific files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build directories
+dist/
+build/
+out/
+
+# Cache directories
+.cache/
+.vite/
+.vite-cache/
+.vitest/
+webpack-cache/
+parcel-cache/
+.sass-cache/
+.next/
+nuxt/
+.pnpm-store/
+
+# Babel and ESLint cache
+.babelrc
+.eslintcache
+
+# TypeScript
+*.tsbuildinfo
+
+# Static build output
+/static
+
+# Mac system files
+.DS_Store
