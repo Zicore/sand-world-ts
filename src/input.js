@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { SandParticle, WaterParticle } from "./particle.js";
+import { AirParticle, SandParticle, WaterParticle } from "./particle.js";
 
 class Input {
   constructor(canvas) {
@@ -69,15 +69,23 @@ class Input {
 
     if (!this.isMouseLeftDown) return;
 
-
-
     for (let x = -brushSize; x <= brushSize; x++) {
       //world.setParticle(gridX, gridY, new WaterParticle());
       for (let y = -brushSize; y <= brushSize; y++) {
-        world.setParticle(gridX + x, gridY + y, this.selectedParticle);
+        world.setParticle(gridX + x, gridY + y, this.createParticle());
       }
     }
   }
+
+  createParticle(){
+    if (this.selectedParticle instanceof SandParticle) {
+      return new SandParticle();
+    } else if (this.selectedParticle instanceof WaterParticle) {
+      return new WaterParticle();
+    } else if (this.selectedParticle instanceof AirParticle) {
+      return new AirParticle();
+  }
+}
 
   getGridPosition(world, camera) {
     const mouseVector = new THREE.Vector3(
@@ -106,6 +114,10 @@ class Input {
 
     if(this.keysPressed['w']) {
       this.selectedParticle = new WaterParticle();
+    }
+
+    if(this.keysPressed['a']) {
+      this.selectedParticle = new AirParticle();
     }
 
     // Überprüfen des Tastaturzustands
