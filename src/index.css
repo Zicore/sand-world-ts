@@ -1,0 +1,29 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  background-color: black;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Prevents scrollbars */
+  }
+
+canvas {
+  background-color: black;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  border: 1px solid white;
+
+  image-rendering: pixelated; /* Optional: preserves pixelated look */
+}
