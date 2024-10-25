@@ -43,11 +43,11 @@ class Input {
       this.mouseMoved = true;
     });
 
-    canvas.addEventListener("mousedown", () => {
+    document.addEventListener("mousedown", () => {
       this.isMouseLeftDown = true;
     });
 
-    canvas.addEventListener("mouseup", () => {
+    document.addEventListener("mouseup", () => {
       this.isMouseLeftDown = false;
     });
   }
